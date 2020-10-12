@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="javascripts/jquery-1.12.0.min.js"></script>
+  <title>Document</title>
+  <style>
+    body {
+      width: 400px;
+    }
+    #click {
+      border: 1px solid #000;
+      display: block;
+    }
+    .colorChange {
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <p id="click">클릭하세요.</p>
+  <div class="colorChange">색이 변합니다.</div>
+  <script>
+    // 객체를 생성
+    $('#click').click(function () {
+      $('body').append('<div class="colorChange">색이 변합니다.</div>');
+    });
+
+    // 동적으로 이벤트를 생성
+    $('body').on('click', '.colorChange', function () {
+      $('.colorChange:last-child').css('background-color', 'red');
+    });
+  </script>
+</body>
+</html>
