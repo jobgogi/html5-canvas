@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 요소 - 문자 선택자</title>
+  <style>
+    body {
+      width: 400px;
+    }
+    ul li {
+      list-style: none;
+    }
+    a::after {
+      content: ' - ' attr(href);
+    }
+    a {
+      text-decoration: none;
+    }
+    a:visited {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="http://www.daum.net" target="_blank">Daum</a></li>
+    <li><a href="http://www.naver.com" target="_blank">Naver</a></li>
+    <li><a href="http://www.google.com" target="_blank">Google</a></li>
+  </ul>
+</body>
+</html>

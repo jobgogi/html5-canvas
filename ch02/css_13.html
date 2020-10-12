@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 요소 - 부정 선택자</title>
+  <style>
+    body {
+      width: 400px;
+    }
+    ul li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      padding: 3px;
+    }
+    li:not(.nonStyle) {
+      background-color: #FFD800;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="http://www.daum.net" target="_blank">Daum</a></li>
+    <li><a href="http://www.naver.com" target="_blank">Naver</a></li>
+    <li class="nonStyle"><a href="http://www.google.com" target="_blank">Google</a></li>
+  </ul>
+</body>
+</html>

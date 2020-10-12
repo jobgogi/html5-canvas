@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 기명 함수 표현식 (named function expression)
+    var ranNum = function makeRandom() {
+      console.log('기명 함수 표현식 : ' + Math.random());
+    };
+    ranNum();
+
+    // 익명 함수 표현식 (anonymous function expression)
+    var ranNum2 = function () {
+      console.log('익명 함수 표현식 : ' + Math.random());
+    };
+    ranNum2();
+
+    // 기명 즉시 실행 함수 (named immediately-invoked function expression)
+    (function makeRandom() {
+      console.log('기명 즉시 함수 표현식 : ' + Math.random());
+    }());
+
+    // 익명 즉시 실행 함수 (immediately-invoked function expression)
+    (function () {
+      console.log('익명 즉시 함수 표현식 : ' + Math.random());
+    }());
+  </script>
+</head>
+<body>
+</body>
+</html>

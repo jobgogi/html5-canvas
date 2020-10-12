@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 요소 - 구조 선택자</title>
+  <style>
+    body {
+      width: 400px;
+    }
+    ul li {
+      list-style: none;
+      border: 1px solid #CCCCCC;
+      padding: 5px;
+      background-color: #EFEFEF;
+    }
+    li:first-child {
+      border-radius: 10px 10px 0 0;
+    }
+    li:nth-child(2n+1) {
+      background-color: #DE9393;
+    }
+    li:nth-child(2n) {
+      background-color: #FF0003;
+    }
+    li:first-child,
+    li:last-child {
+      background-color: yellow;
+    }
+    li:last-child {
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>First menu</li>
+    <li>Second menu</li>
+    <li>Third menu</li>
+    <li>Fourth menu</li>
+    <li>Fifth menu</li>
+  </ul>
+</body>
+</html>
