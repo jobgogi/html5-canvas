@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="javascripts/jquery-1.12.0.min.js"></script>
+  <title>Document</title>
+  <style>
+    body {
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+  아이디: <input type="text" id="uid" name="uid" value="hong"><br>
+  이름: <input type="text" id="uname" name="uname">
+  <script>
+    var uid = $('#uid').val();
+    console.log('uid: ' + uid);
+    $('#uname').val('홍길동');
+  </script>
+</body>
+</html>
