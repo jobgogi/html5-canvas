@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선의 끝부분 처리 방법</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>선의 끝부분 처리 방법</h1>
+  <h2>butt - 좌표에 맞추어 마무리 (기본값)</h2>
+  <canvas id="canvas-1" width="400" height="100"></canvas>
+  <h2>round - 선 두께를 반지름으로 하여 끝을 둥글린다.</h2>
+  <canvas id="canvas-2" width="400" height="100"></canvas>
+  <h2>square - 선의 끝을 사각형으로 처리한다. 선 두께만큼 길어진다.</h2>
+  <canvas id="canvas-3" width="400" height="100"></canvas>
+  <script>
+    renderCanvas('canvas-1', 'butt');
+    renderCanvas('canvas-2', 'round');
+    renderCanvas('canvas-3', 'square');
+
+    function renderCanvas(id, lineCap) {
+      var canvas = document.getElementById(id);
+      var ctx = canvas.getContext('2d');
+      ctx.lineWidth = 20;
+      ctx.strokeStyle = '#0000FF';
+
+      ctx.beginPath();
+      ctx.moveTo(100, 50);
+      ctx.lineTo(300, 50);
+      ctx.lineCap = lineCap;
+      ctx.stroke();
+    }
+  </script>
+</body>
+</html>

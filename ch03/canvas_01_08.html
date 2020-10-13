@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선의 꺽인 부분 처리 방법</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>선의 꺽인 부분 처리 방법</h1>
+  <h2>miter - 각진 모서리 형태 (기본값)</h2>
+  <canvas id="canvas-1" width="400" height="100"></canvas>
+  <h2>round - 둥근 모서리 형태</h2>
+  <canvas id="canvas-2" width="400" height="100"></canvas>
+  <h2>bevel - 잘려나간 모서리 형태</h2>
+  <canvas id="canvas-3" width="400" height="100"></canvas>
+  <script>
+    renderCanvas('canvas-1', 'miter');
+    renderCanvas('canvas-2', 'round');
+    renderCanvas('canvas-3', 'bevel');
+
+    function renderCanvas(id, lineJoin) {
+      var canvas = document.getElementById(id);
+      var ctx = canvas.getContext('2d');
+      ctx.lineWidth = 20;
+      ctx.strokeStyle = '#0000FF';
+
+      ctx.beginPath();
+      ctx.moveTo(100, 35);
+      ctx.lineTo(300, 35);
+      ctx.lineTo(300, 75);
+      ctx.lineJoin = lineJoin;
+      ctx.stroke();
+    }
+  </script>
+</body>
+</html>

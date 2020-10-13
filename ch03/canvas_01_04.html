@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사각형 그리기 / 붉은 색으로 내부 채우기</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>사각형 그리기 / 붉은 색으로 내부 채우기</h1>
+  <canvas id="myCanvas" width="400" height="300">CANVAS를 지원하지 않습니다.</canvas>
+  <script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(100, 50);
+    ctx.lineTo(300, 50);
+    ctx.lineTo(300, 200);
+    ctx.lineTo(100, 200);
+    ctx.lineTo(100, 50);
+    ctx.stroke();
+    ctx.fillStyle = 'red';
+    ctx.fill();
+  </script>
+</body>
+</html>
