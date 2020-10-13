@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사각형 그리기</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>사각형 그리기</h1>
+  <canvas id="canvas-1" width="400" height="300"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas-1');
+    var ctx = canvas.getContext('2d');
+    ctx.strokeRect(20, 20, 100, 100); // x: 20, y: 20, 폭과 높이 각각 100
+    ctx.strokeRect(150, 150, 50, 50); // x: 150, y: 150, 폭과 높이 각각 50
+  </script>
+</body>
+</html>
