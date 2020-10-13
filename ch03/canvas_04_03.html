@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>패턴으로 사각형 내부 채우기</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>패턴으로 사각형 내부 채우기</h1>
+  <canvas id="canvas-1" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas-1');
+    var ctx = canvas.getContext('2d');
+    var flower = new Image();
+    flower.src = 'images/flower.png';
+    flower.onload = function () {
+      var pattern = ctx.createPattern(flower, 'repeat');
+      ctx.fillStyle = pattern;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+</body>
+</html>
