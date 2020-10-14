@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글씨 크기를 크게 변경하기</title>
+</head>
+<body>
+  <h1>글씨 크기를 크게 변경하기</h1>
+  <canvas id="canvas-1" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas-1');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#6495ED';
+    ctx.font = 'italic bold 28px Arial, sans-serif';
+    ctx.fillText('Hello Canvas World!', 50, 100);
+  </script>
+</body>
+</html>

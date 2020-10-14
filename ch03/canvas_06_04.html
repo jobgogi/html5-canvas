@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글씨의 좌우정렬 알아보기</title>
+</head>
+<body>
+  <h1>글씨의 좌우정렬 알아보기</h1>
+  <canvas id="canvas-1" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas-1');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#6495ED';
+    ctx.font = 'italic bold 30px Arial, sans-serif';
+    ctx.textAlign = 'start'; // 시작점을 기준으로 정렬
+    ctx.fillText('Hello World!', 200, 50);
+    ctx.textAlign = 'end'; // 글씨의 끝점을 기준으로 정렬
+    ctx.fillText('Hello World!', 200, 100);
+    ctx.textAlign = 'left'; // 글씨의 왼쪽을 기준으로 정렬
+    ctx.fillText('Hello World!', 200, 150);
+    ctx.textAlign = 'right'; // 글씨의 오른쪽을 기준으로 정렬
+    ctx.fillText('Hello World!', 200, 200);
+    ctx.textAlign = 'center'; // 글씨의 중심을 기준으로 정렬
+    ctx.fillText('Hello World!', 200, 250);
+    ctx.strokeStyle = 'red';
+    ctx.moveTo(200, 20);
+    ctx.lineTo(200, 370);
+    ctx.stroke();
+  </script>
+</body>
+</html>

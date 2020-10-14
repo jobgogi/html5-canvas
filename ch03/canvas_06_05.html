@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글씨의 상하정렬 알아보기</title>
+</head>
+<body>
+  <h1>글씨의 상하정렬 알아보기</h1>
+  <canvas id="canvas-1" width="650" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas-1');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#6495ED';
+    ctx.font = 'bold 30px Arial, sans-serif';
+    ctx.textBaseline = 'top'; // 시작점을 기준으로 정렬
+    ctx.fillText('top!', 10, 150);
+    ctx.textBaseline = 'bottom'; // 글씨의 끝점을 기준으로 정렬
+    ctx.fillText('bottom!', 80, 150);
+    ctx.textBaseline = 'middle'; // 글씨의 왼쪽을 기준으로 정렬
+    ctx.fillText('middle!', 200, 150);
+    ctx.textBaseline = 'alphabetic'; // 글씨의 오른쪽을 기준으로 정렬
+    ctx.fillText('alphabetic!', 320, 150);
+    ctx.textBaseline = 'hanging'; // 글씨의 중심을 기준으로 정렬
+    ctx.fillText('hanging!', 500, 150);
+    ctx.strokeStyle = 'red';
+    ctx.moveTo(0, 150);
+    ctx.lineTo(650, 150);
+    ctx.stroke();
+  </script>
+</body>
+</html>
