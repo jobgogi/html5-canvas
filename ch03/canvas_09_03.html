@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지에서 영역을 선택하여 그 부분의 색상 반전시키기</title>
+</head>
+<body>
+  <h1>이미지에서 영역을 선택하여 그 부분의 색상 반전시키기</h1>
+  <canvas id="canvas" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.src = 'images/duck.jpg';
+    img.onload = function () {
+      draw(this);
+    };
+
+    function draw(img) {
+      ctx.drawImage(img, 0, 0);
+      var src = ctx.getImageData(0, 0, 100, 100);
+      var datas = src.data;
+      var numPixels = datas.length;
+
+      for (var i = 0; i < numPixels; i += 4) {
+        datas[i]      = 255 - datas[i];     // red
+        datas[i + 1]  = 255 - datas[i + 1]; // green
+        datas[i + 2]  = 255 - datas[i + 2]; // blue
+      }
+
+      ctx.putImageData(src, 200, 50);
+      ctx.strokeRect(0, 0, 100, 100);
+      ctx.strokeRect(200, 50, 100, 100);
+    }
+  </script>
+</body>
+</html>
