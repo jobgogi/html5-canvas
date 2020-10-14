@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스로 클릭한 곳의 좌표 얻기</title>
+  <style>
+    #canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>마우스로 클릭한 곳의 좌표 얻기</h1>
+  <canvas id="canvas" width="400" height="300"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.addEventListener('click', function (e) {
+      var mouseX = e.clientX - ctx.canvas.offsetLeft;
+      var mouseY = e.clientY - ctx.canvas.offsetTop;
+      console.log('X : ' + mouseX + ', Y: ' + mouseY);
+      ctx.fillStyle = 'red';
+      ctx.fillRect(mouseX - 10, mouseY - 10, 20, 20);
+    });
+  </script>
+</body>
+</html>
