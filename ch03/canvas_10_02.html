@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두 개의 이미지를 합성하여 그리기</title>
+</head>
+<body>
+  <h1>두 개의 이미지를 합성하여 그리기</h1>
+  <p>source-over</p>
+  <canvas id="canvas-1" width="200" height="200"></canvas>
+  <p>source-atop</p>
+  <canvas id="canvas-2" width="200" height="200"></canvas>
+  <p>source-in</p>
+  <canvas id="canvas-3" width="200" height="200"></canvas>
+  <p>source-out</p>
+  <canvas id="canvas-4" width="200" height="200"></canvas>
+  <p>destination-over</p>
+  <canvas id="canvas-5" width="200" height="200"></canvas>
+  <p>destination-atop</p>
+  <canvas id="canvas-6" width="200" height="200"></canvas>
+  <p>destination-in</p>
+  <canvas id="canvas-7" width="200" height="200"></canvas>
+  <p>destination-out</p>
+  <canvas id="canvas-8" width="200" height="200"></canvas>
+  <p>lighter</p>
+  <canvas id="canvas-9" width="200" height="200"></canvas>
+  <p>copy</p>
+  <canvas id="canvas-10" width="200" height="200"></canvas>
+  <p>xor</p>
+  <canvas id="canvas-11" width="200" height="200"></canvas>
+  <script>
+    var lists = [
+      'source-over', 'source-atop', 'source-in', 'source-out',
+      'destination-over', 'destination-atop', 'destination-in', 'destination-out',
+      'lighter', 'copy', 'xor'
+    ];
+
+    function draw() {
+      for (var i = 0; i < 11; i++) {
+        var id = 'canvas-' + (i + 1);
+        var canvas = document.getElementById(id);
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'red';
+        ctx.fillRect(20, 20, 100, 100);
+        // console.log(lists[i]);
+        ctx.globalCompositeOperation = lists[i];
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(50, 50, 100, 100);
+      }
+    }
+
+    draw();
+  </script>
+</body>
+</html>
