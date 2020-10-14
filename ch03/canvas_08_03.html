@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회전시키기</title>
+</head>
+<body>
+  <h1>회전시키기</h1>
+  <canvas id="canvas" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'yellow';
+    ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(100, 100, 100, 100);
+    ctx.fillRect(100, 100, 100, 100);
+    ctx.rotate(5 * Math.PI / 180);
+    ctx.strokeRect(100, 100, 100, 100);
+    ctx.fillRect(100, 100, 100, 100);
+    ctx.rotate(5 * Math.PI / 180);
+    ctx.strokeRect(100, 100, 100, 100);
+    ctx.fillRect(100, 100, 100, 100);
+  </script>
+</body>
+</html>

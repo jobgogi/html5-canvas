@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사각형 형태 변형하기 - 3</title>
+</head>
+<body>
+  <h1>사각형 형태 변형하기 - 3</h1>
+  <p>transform, setTransform의 차이</p>
+  <canvas id="canvas" width="400" height="400"></canvas>
+  <canvas id="canvas-2" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'yellow';
+    ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(0, 0, 100, 100);
+    ctx.fillRect(0, 0, 100, 100);
+    ctx.transform(1, 0.2, 0.2, 1, 100, 100);
+    ctx.fillStyle = 'green';
+    ctx.fillRect(0, 0, 100, 100);
+    ctx.setTransform(1, 0, 0, 1, 100, 100);
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0, 0, 100, 100);
+
+    var canvas2 = document.getElementById('canvas-2');
+    var ctx2 = canvas2.getContext('2d');
+    ctx2.fillStyle = 'yellow';
+    ctx2.strokeStyle = 'blue';
+    ctx2.lineWidth = 3;
+    ctx2.strokeRect(0, 0, 100, 100);
+    ctx2.fillRect(0, 0, 100, 100);
+    ctx2.setTransform(1, 0.2, 0.2, 1, 100, 100);
+    ctx2.fillStyle = 'green';
+    ctx2.fillRect(0, 0, 100, 100);
+    ctx2.transform(1, 0, 0, 1, 100, 100);
+    ctx2.fillStyle = 'red';
+    ctx2.fillRect(0, 0, 100, 100);
+  </script>
+</body>
+</html>
