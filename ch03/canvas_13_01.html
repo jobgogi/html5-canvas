@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 애니메이션 만들기</title>
+</head>
+<body>
+  <h1>이미지 애니메이션 만들기</h1>
+  <canvas id="canvas-1" width="400" height="600"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas-1');
+    var ctx = canvas.getContext('2d');
+    var bgImage = new Image();
+    bgImage.src = 'images/space.png';
+    var x = 0;
+
+    function animate() {
+      ctx.drawImage(bgImage, x--, 0);
+      if (x <= -600) {
+        x = 0;
+      }
+    }
+    var animateInterval = setInterval(animate, 30);
+  </script>
+</body>
+</html>
