@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>캔버스의 빌딩 이미지를 마우스로 클릭할 때 빌딩 이름 출력하기</title>
+</head>
+<body>
+  <h1>캔버스의 빌딩 이미지를 마우스로 클릭할 때 빌딩 이름 출력하기</h1>
+  <canvas id="canvas-1" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas-1');
+    var ctx = canvas.getContext('2d');
+    var buildings = [
+      { id: 'AirPort', x: 50, y: 50, w: 64, h: 64, sx: 0, sy: 0 },
+      { id: 'Bank', x: 150, y: 50, w: 64, h: 64, sx: 100, sy: 0 },
+      { id: 'CarRepair', x: 250, y: 50, w: 64, h: 64, sx: 200, sy: 0 },
+      { id: 'GasStation', x: 50, y: 150, w: 64, h: 64, sx: 300, sy: 0 },
+      { id: 'Hospital', x: 150, y: 150, w: 64, h: 64, sx: 400, sy: 0 },
+      { id: 'Temple', x: 250, y: 150, w: 64, h: 64, sx: 500, sy: 0 }
+    ];
+
+    // 빌딩 이미지
+    var buildingImage = new Image();
+    buildingImage.src = './images/buildings.png';
+
+    var bgImage = new Image();
+    bgImage.src = './images/background.png';
+
+    buildingImage.onload = function () {
+      ctx.drawImage(bgImage, 0, 0);
+      for (var i = 0; i < buildings.length; i++) {
+        const { id, x, y, w, h, sx, sy } = buildings[i];
+        ctx.drawImage(buildingImage, sx, sy, w, h, x, y, w, h);
+      }
+    };
+
+    document.addEventListener('click', (e) => {
+      var mouseX = e.clientX - ctx.canvas.offsetLeft;
+      var mouseY = e.clientY - ctx.canvas.offsetTop;
+
+      for (var i = 0; i < buildings.length; i++) {
+        var bData = buildings[i];
+
+        // 마우스 좌표를 체크하여 빌딩의 이름을 가져온다.
+        if (mouseX >= bData.x && mouseX < bData.x + bData.w
+              && mouseY >= bData.y && mouseY < bData.y + bData.h) {
+          console.log(bData.id);
+          // 캔버스에 선택한 건물명을 출력할 배경을 만든다.
+          ctx.clearRect(100, 260, 200, 30);
+          ctx.fillStyle = 'yellow';
+          ctx.fillRect(100, 260, 200, 30);
+          // 캔버스에 선택한 건물명을 출력한다.
+          ctx.fillStyle = '#6495ED';
+          ctx.textAlign = 'center';
+          ctx.font = 'bold 20px Arial, sans-serif';
+          ctx.fillText(bData.id, 200, 280);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
